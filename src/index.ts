@@ -7,10 +7,10 @@ type TUser = {
     email: string
 }
 
-const users: TUser[] = []
+let users: TUser[] = []
 
-router.post("/users", (req, res) => {
-    const user: TUser = req.body
+router.post("/users", (req: Request, res: Response) => {
+    let user: TUser = req.body
     users.push(user)
     console.log(users)
     res.json({
@@ -19,20 +19,20 @@ router.post("/users", (req, res) => {
     
 })
 
-router.get("/hello", (req, res) => {
+router.get("/hello", (req: Request, res: Response) => {
     res.json({
         msg: "Hello world!"
     })
 })
 
-router.get("/echo/:id", (req, res) => {
+router.get("/echo/:id", (req: Request, res: Response) => {
     res.json({
         id: req.params.id
     })
 
 })
 
-router.post("/sum", (req, res) => {
+router.post("/sum", (req: Request, res: Response) => {
     const numbers = req.body.numbers
 
     res.json({
