@@ -13,7 +13,9 @@ router.post("/users", (req, res) => {
     const user: TUser = req.body
     users.push(user)
     console.log(users)
-    res.send("User succesfully added")
+    res.json({
+        message: "User succesfully added"
+    })
     
 })
 
