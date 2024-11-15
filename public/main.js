@@ -1,13 +1,17 @@
-const submitFormBtn = document.getElementById('submit');
-submitFormBtn.addEventListener('click', async function() {
-    const form = document.getElementById('email').value;
+const form = document.getElementById('userForm');
+form.addEventListener('submit', async function() {
+    const email = document.getElementById('email').value;
     const name = document.getElementById('name').value;
     console.log(name);
-    console.log(form);
-    const formData = await fetch('/users', {
+    await fetch('/users', {
         method: 'post',
-        
-        body: JSON.stringify({ name: name, email: form })
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ name: name, email: email })
     });
-
 });
+
+
+
+
