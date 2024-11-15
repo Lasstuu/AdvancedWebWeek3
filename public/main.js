@@ -1,4 +1,3 @@
-//when form is submitted send a post request to the server
 const submitFormBtn = document.getElementById('submitBtn');
 submitFormBtn.addEventListener('click', async function() {
     const form = document.getElementById('email').value;
@@ -7,10 +6,8 @@ submitFormBtn.addEventListener('click', async function() {
     console.log(form);
     const formData = await fetch('/users', {
         method: 'post',
-        headers: {
-            'Content-Type': 'application/json'
-        },
+        
         body: JSON.stringify({ name: name, email: form })
     });
-    
+
 });
