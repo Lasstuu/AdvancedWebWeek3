@@ -12,6 +12,19 @@ form.addEventListener('submit', async function() {
     });
 });
 
+const getUserButton = document.getElementById('getUsers');
+getUserButton.addEventListener('click', async function() {
+    const userData = await fetch('/users')
+    const userJson = await userData.json();
+    const userList = document.getElementById('userList'); 
+    for (let i = 0; i < userJson.users.length; i++) {
+        const user = userJson.users[i];
+        const userListChild = document.createElement('li');
+        userListChild.innerHTML = user.name + ' - ' + user.email;
+        userList.appendChild(userListChild);
+    }
+
+})
 
 
 

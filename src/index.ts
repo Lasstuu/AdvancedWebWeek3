@@ -19,6 +19,13 @@ router.post("/users", (req: Request, res: Response) => {
     
 })
 
+router.get("/users", (req: Request, res: Response) => {
+    res.status(201).json({
+        users: users
+    })
+    
+})
+
 router.get("/hello", (req: Request, res: Response) => {
     res.json({
         msg: "Hello world!"
